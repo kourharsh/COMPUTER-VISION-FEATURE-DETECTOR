@@ -95,7 +95,7 @@ def featurematching(keyp1,keyp2):
 
     for key in matched_dict.keys():
         ratio = matched_dict_dist[key]/matched_dict_second_dist[key]
-        if ratio < 0.5: ## SSD ratio
+        if ratio < 0.8: ## SSD ratio
             idx = matched_dict[key]
             outer_index = idx[0]
             inner_index = idx[1]
@@ -265,7 +265,7 @@ def adaptive_nonmax_suppression(max_strength_mat, max_points, max_point_count):
     adaptive_points.sort(key = lambda x: x[2], reverse= True)
 
     #pixel_count = np.uint(.9 * (len(adaptive_points))) #60% of the pixels #to be changed
-    pixel_count = 500
+    pixel_count = 900
     print("Adaptive points : " )
     print(adaptive_points[0:pixel_count])
     return adaptive_points[0:pixel_count], pixel_count
